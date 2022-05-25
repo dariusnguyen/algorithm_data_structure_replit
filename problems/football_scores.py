@@ -1,3 +1,11 @@
+'''
+teamA is a list of the goals of team A in each match
+teamB is a list of the goals of team B in each match
+2<= n, m <=10^5
+
+For each match of team B, compute the total number of matches of team A where team A scored less than or equal to team B in that match.
+'''
+
 def count(teamA, teamB):
   dict1 = {}
   for g in teamA:
