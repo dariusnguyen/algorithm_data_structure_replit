@@ -1,3 +1,4 @@
-from problems import sum_even_fibs
-
-print(sum_even_fibs.sum_even_fibs(1000))
+from problems import next_prime
+input1 = 7742.564641
+# input2 = 9
+print(next_prime.next_prime(input1))
