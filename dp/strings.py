@@ -87,3 +87,55 @@ def count_construct_dp(target, arr, memo={}):
 			count += count_construct_dp(new_target, arr, memo)
 	memo[target] = count
 	return count
+
+'''
+'target'
+'t', 'tar', 'ar', 'get', 'arg', 'et'
+
+recursion
+base case: target = ''
+	return []
+for sub in arr
+	if sub = target[:len(sub)]
+ 		construct = recurse(target[len(sub):], arr)
+   		construct.append(sub)
+'''
+def all_construct_recur(target, arr):
+	if target=='':
+		return [[]]
+	res = []
+	for sub in arr:
+		if sub == target[:len(sub)]:
+			construct = all_construct_recur(target[len(sub):], arr)
+			if construct is not None:
+				for c in construct:
+					c.append(sub)
+				res += construct
+	return res
+
+def all_construct_dp(target, arr, memo={}):
+	'''
+ 	there's a bug. doesn't run correctly yet
+ 	'''
+	if target == '':
+		return [[]]
+	if target in memo:
+		return memo[target]
+	print('target:', target)
+
+	res = []
+	for sub in arr:
+		if sub == target[:len(sub)]:
+			construct = all_construct_dp(target[len(sub):], arr, memo)
+			print('sub', sub, 'new target:', target[len(sub):])
+			print('construct', construct)
+			if construct is not None:
+				for c in construct:
+					c.insert(0, sub)
+				res += construct
+				
+	memo[target] = res
+
+	# print('memo:', memo)
+	return res
+

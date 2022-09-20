@@ -48,6 +48,13 @@ class Node():
 		return f'Node({self.data})'
 		
 def rightsideview(root):
+	'''
+	This solution considers the right as the front of the queue
+	and the left as the back of the queue
+	So q.pop() is used to dequeue
+	and q.insert(0, node) is used to enqueue
+	The for loop is used to traverse all nodes in the current level
+	'''
 	q = [root]
 	res = []
 	while len(q)>0:
@@ -61,3 +68,21 @@ def rightsideview(root):
 	# for i in res:
 	# 	print(i, end=' ')
 	return [str(i) for i in res]
+
+def rightSideView2(root):
+	'''
+	Same idea as the above solution
+	but here we consider the left as the front of the queue, and use q.pop(0) to dequeue
+	and q.append(node) to enqueue to the right	
+	'''
+	q = [root]
+	output = []
+	while len(q) > 0:
+		output.append(q[-1])
+		for i in range(len(q)):			
+			curr = q.pop(0)
+			if curr.left:
+				q.append(curr.left)
+			if curr.right:
+				q.append(curr.right)
+	return output

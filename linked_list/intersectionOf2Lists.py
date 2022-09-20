@@ -23,7 +23,7 @@ M
 	Linked list
 	Multiple pass
 P
-	the parts of the 2 lists that intersect must have the same length, so first need to make them have the same length by cutting of the "prefix"
+	the parts of the 2 lists that intersect must have the same length, so first need to make them have the same length by cutting off the "prefix"
 
 	function get_len(head):
 		if last node
